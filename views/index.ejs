@@ -19,6 +19,20 @@
     <% } %>
     
   </div>
+  <div class="contacts content">
+    <h2>All Contacts</h2>
+    <% if (contact.length > 0) { %>
+      <% contact.forEach(register => { %>
+        <a class="single" href="/contact/<%= register._id %>">
+          <h3 class="title"><%= register.title %></h3>
+          <p class="snippet"><%= register.snippet %></p>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no contacts to display...</p>
+    <% } %>
+    
+  </div>
 
   <%- include("./partials/footer.ejs") %>
 </body>

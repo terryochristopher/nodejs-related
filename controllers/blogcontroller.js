@@ -36,6 +36,17 @@ const blog_create_post = (req, res) => {
     });
 }
 
+const contact_create_post = (req, res) => {
+  const blog = new Blog(req.body);
+  register.save()
+    .then(result => {
+      res.redirect('/contact');
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
 const blog_delete = (req, res) => {
   const id = req.params.id;
   Blog.findByIdAndDelete(id)
@@ -52,5 +63,6 @@ module.exports = {
   blog_details, 
   blog_create_get, 
   blog_create_post, 
-  blog_delete
+  blog_delete,
+  contact_create_post
 }
